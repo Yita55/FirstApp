@@ -37,6 +37,7 @@ export default class extends React.Component {
     console.log('Login RENDER');
     return (
       <View style={[styles.container, this.props.style]}>
+        <Text>Hello World!</Text>
         <Text>Login page 1</Text>
         <Text>Title: {title}</Text>
         <Text>Data: {data}</Text>

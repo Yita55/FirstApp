@@ -18,13 +18,13 @@ const popToRoot = () => {
 };
 
 const popToLogin1 = () => {
-  //Actions.popTo('Login');
-  Actions.Login();
+  Actions.popTo('Login');
+  //Actions.Login();
 };
 
 const popToLogin2 = () => {
-  //Actions.popTo('Login2');
-  Actions.Login2();
+  Actions.popTo('Login2');
+  //Actions.Login2();
 };
 
 const popAndRefresh = () => {
