@@ -36,6 +36,9 @@ import Login2 from './components/Login2';
 import Login3 from './components/Login3';
 import EchoView from './components/EchoView';
 import Launch from './components/Launch';
+import CustomNavBarView from './components/CustomNavBarView';
+import CustomNavBar from './components/CustomNavBar';
+import CustomNavBar2 from './components/CustomNavBar2';
 
 const stateHandler = (prevState, newState, action) => {
   console.log('onStateChange: ACTION:', action);
@@ -50,11 +53,16 @@ const App = () => {
 
   return (
     <Router onStateChange={stateHandler}>
+      <Overlay key="overlay">
+      <Lightbox key="lightbox">
       <Scene key="root">
-        <Scene key="Login" initial={true} component={Login} />
+        <Scene key="Launch" initial={true} component={Launch} />
+        <Scene key="Login" component={Login} />
         <Scene key="Login2" component={Login2} />
         <Scene key="Login3" component={Login3} />
       </Scene>
+      </Lightbox>
+      </Overlay>
     </Router>
   );
 };
