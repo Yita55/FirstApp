@@ -7,7 +7,19 @@
  */
 
 import React from 'react';
-import {Scene, Router} from 'react-native-router-flux';
+import {StackViewStyleInterpolator} from 'react-navigation-stack';
+import {
+  Scene,
+  Router,
+  Actions,
+  ActionConst,
+  Overlay,
+  Tabs,
+  Modal,
+  Drawer,
+  Stack,
+  Lightbox,
+} from 'react-native-router-flux';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,11 +29,17 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import ErrorModal from './components/modal/ErrorModal';
+import Login from './components/Login';
+import Login2 from './components/Login2';
+import Login3 from './components/Login3';
+import EchoView from './components/EchoView';
+import Launch from './components/Launch';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
+const stateHandler = (prevState, newState, action) => {
+  console.log('onStateChange: ACTION:', action);
+};
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,16 +49,13 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View>
-          <Text>test test</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Router onStateChange={stateHandler}>
+      <Scene key="root">
+        <Scene key="Login" initial={true} component={Login} />
+        <Scene key="Login2" component={Login2} />
+        <Scene key="Login3" component={Login3} />
+      </Scene>
+    </Router>
   );
 };
 
